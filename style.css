@@ -24,7 +24,7 @@ html,body{
     margin: 0 auto;    
 }
 #chat{
-    height: 15%;
+    height: 10%;
     width: 100%;
     background-color: #667eea;
     border-radius: 35px;
@@ -94,7 +94,7 @@ html,body{
     align-self: flex-end; 
 }
 #typing{
-    height: 15%;
+    height: 10%;
     width: 100%;
     background-color: #f8f9fa;
     border-radius: 35px;
@@ -130,3 +130,4 @@ html,body{
     background-color: #5a6fd8;
 
 }
+
