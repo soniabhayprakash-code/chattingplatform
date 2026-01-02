@@ -1,6 +1,6 @@
 {
   "name": "The Chatting",
-  "short_name": "ChatApp",
+  "short_name": "The Chatting",
   "description": "Real-time chatting platform",
   "start_url": "/",
   "display": "standalone",
@@ -18,4 +18,5 @@
       "type": "image/png"
     }
   ]
+
 }
