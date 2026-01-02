@@ -17,7 +17,7 @@ html,body{
     height: 100vh;      
     max-width: 500px;
     box-shadow:none;
-    background-color: #f8f9fa;
+    background-color: white;
     overflow: hidden;
     flex-direction: column;
     display: flex;
@@ -96,7 +96,7 @@ html,body{
 #typing{
     height: 10%;
     width: 100%;
-    background-color: #f8f9fa;
+    background-color: white;
     border-radius: 35px;
     border: 1px solid black;
     display: flex;
@@ -112,7 +112,7 @@ html,body{
     border-radius: 35px;
     padding: 10px;
     margin-right:5px;
-    background-color: #f8f9fa;
+    background-color: white;
 }
 #sendBtn{
     height:50px;
@@ -130,4 +130,5 @@ html,body{
     background-color: #5a6fd8;
 
 }
+
 
