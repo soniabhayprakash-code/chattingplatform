@@ -119,10 +119,11 @@ html,body{
     display: flex;
     align-items: center;
     justify-content: center;
-    position:sticky;
+    position:relative;
     bottom: 0;
     padding: 4px;
     z-index: 10;
+    transition: transform 0.2s ease;
 }
 #messageInput{
     flex: 1;
