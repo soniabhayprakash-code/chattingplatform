@@ -83,11 +83,17 @@ html,body{
     position: relative;
 }
 .delete-btn {
-    background:white;
-    border-radius:50%;
-    font-size: 15px;
-    cursor: pointer;
-    margin-left: 20px;
+    height:20px;
+    width: 20px;
+    border-radius: 50%;
+    background-color:white;
+    color: black;
+    font-size: 20px;
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1px;
 }
 .sent .delete-btn {
     position: absolute;
@@ -115,7 +121,7 @@ html,body{
 .timestamp {
     font-size: 11px;
     opacity: 0.7;
-    margin-top: 4px;
+    margin-top: 1px;
     margin-right: 20px;
     text-align:right; 
     align-self: flex-end; 
