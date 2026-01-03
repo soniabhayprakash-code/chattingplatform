@@ -120,7 +120,6 @@ html,body{
     align-items: center;
     justify-content: center;
     position:relative;
-    bottom: 0;
     padding: 4px;
     z-index: 10;
     transition: transform 0.2s ease;
@@ -152,3 +151,4 @@ html,body{
 #sendBtn:hover {
     background-color: #474646;
 }
+
