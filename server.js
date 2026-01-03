@@ -11,9 +11,6 @@ io.on('connection', (socket) => {
     socket.on('chat message', (msg) => {
         socket.broadcast.emit('chat message', msg); 
     });
-    socket.on('delete message', (messageId) => {
-        io.emit('delete message', messageId);
-    });
     socket.on('disconnect', () => {
         console.log('Connection is Gone');
     });
