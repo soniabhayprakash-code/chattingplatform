@@ -103,6 +103,7 @@ html,body{
     align-self: flex-end; 
 }
 #typing{
+    flex-shrink: 0;
     height: 10%;
     width: 100%;
     background-color: white;
@@ -111,8 +112,10 @@ html,body{
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 5px;
 }
 #messageInput{
+    flex: 1;
     height: 52px;
     width: 250px;
     border-radius: 1px solid black;
@@ -139,6 +142,7 @@ html,body{
     background-color:#474646;
 
 }
+
 
 
 
