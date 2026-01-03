@@ -58,10 +58,15 @@ input.addEventListener("keydown", (event) => {
 });
 input.addEventListener('focus', () => {
     setTimeout(() => {
+        document.getElementById('typing').scrollIntoView({ behavior: 'smooth', block: 'end' });
         chatBox.scrollTop = chatBox.scrollHeight;
     }, 300);
 });
-
+input.addEventListener('blur', () => {
+    setTimeout(() => {
+        chatBox.scrollTop = chatBox.scrollHeight;
+    }, 300);
+});
 
 
 
