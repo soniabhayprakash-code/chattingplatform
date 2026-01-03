@@ -55,6 +55,12 @@ window.addEventListener('load', () => {
         });
     }
 });
+input.addEventListener('focus', () => {
+    setTimeout(() => {
+        chatBox.scrollTop = chatBox.scrollHeight;
+    }, 300); 
+});
+
 
 
 
