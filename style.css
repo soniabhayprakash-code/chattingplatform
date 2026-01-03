@@ -29,7 +29,7 @@ html,body{
     top: 0;
     left: 0;
     flex-direction: column;
-    position: fixed;
+    position: relative;
 }
 #chat{
     flex-shrink: 0;
@@ -151,4 +151,3 @@ html,body{
 #sendBtn:hover {
     background-color: #474646;
 }
-
