@@ -1,168 +1,29 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family:Georgia, 'Times New Roman', Times, serif;
-}
-html,body{
-    background: linear-gradient(135deg, black, #373637);
-    height: 100%;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0;
-    padding: 0;
-    overflow: hidden; 
-}
-#box {
-    width: 100vw;       
-    height: 100vh;  
-    height: 100dvh;    
-    max-width: 100%;   
-    margin: 0 auto;        
-    box-shadow: none;    
-    background-color: white;
-    overflow: hidden;
-    display: flex;
-    top: 0;
-    left: 0;
-    flex-direction: column;
-    position: fixed;
-}
-#chat{
-    flex-shrink: 0;
-    height: 10%;
-    width: 100%;
-    background-color: black;
-    border-radius: none;
-    border-bottom-right-radius: 35px;
-    border-bottom-left-radius: 35px;
-    font-size: 35px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-}
-#chat-box {
-    flex: 1; 
-    width: 100%;
-    height: 70%;
-    color: rgb(8, 8, 8);
-    font-size: 20px;
-    padding: 30px;
-    overflow-y: auto;
-    overflow-x: hidden; 
-    word-wrap: break-word; 
-    word-break: break-all;
-    display: flex;
-    flex-direction: column;
-    background-color: white;
-    -webkit-overflow-scrolling: touch;
-}
-#messages {
-    list-style: none;
-    width: 100%;
-}
-.sent {
-    align-self: flex-end;
-    max-width: 75%;
-    background: black; 
-    color: white;
-    padding: 10px 10px;
-    border-radius: 18px;
-    font-size: 18px;
-    border-bottom-right-radius: 5px;
-    margin: 8px 0;
-    margin-left: 70px;
-    word-wrap: break-word;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.2);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    position: relative;
-}
-.delete-btn {
-    height:20px;
-    width: 20px;
-    border-radius: 50%;
-    background-color:white;
-    color: black;
-    font-size: 20px;
-    border: 1px solid black;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 1px;
-}
-.sent .delete-btn {
-    position: absolute;
-    right: 5px;
-    bottom: 5px;
-}
-.delete-btn:hover {
-    opacity: 1;
-}
-.received {
-    align-self: flex-start;
-    max-width: 75%;
-    background: white;
-    color: black;
-    padding: 10px 10px;
-    border-radius: 18px;
-    border-bottom-left-radius: 5px;
-    margin: 8px 0;
-    word-wrap: break-word;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.2);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-.timestamp {
-    font-size: 11px;
-    opacity: 0.7;
-    margin-top: 1px;
-    margin-right: 20px;
-    text-align:right; 
-    align-self: flex-end; 
-}
-#typing{
-    flex-shrink: 0;
-    height: 10%;
-    width: 100%;
-    background-color: white;
-    border-radius: 35px;
-    border: 1px solid black;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    padding: 4px;
-}
-#messageInput{
-    flex: 1;
-    height: 52px;
-    width: 250px;
-    border-radius: 1px solid black;
-    font-size: 15px;
-    color: black;
-    border-radius: 35px;
-    padding: 10px;
-    margin-right:5px;
-    background-color: white;
-}
-#sendBtn{
-    height:50px;
-    width: 75px;
-    border-radius: 20px;
-    background-color: black;
-    color: white;
-    font-size: 32px;
-    border: 2px solid white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-#sendBtn:hover {
-    background-color: #474646;
-}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>The Chatting</title>
+    <link rel="stylesheet" href="style.css">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#000000">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="The Chatting">
+<link rel="apple-touch-icon" href="icon-192.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+</head>
+<body>
+<div id="box">
+    <div id="chat">The Chatting</div>
+    <div id="chat-box">
+        <div id="dabba">
+            <ul id="messages"></ul></div>
+        </div>
+    <div id="typing">
+        <input type="text" id="messageInput" placeholder="Type Message....">
+    <button id="sendBtn">⩥</button>
+</div>
+<script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
