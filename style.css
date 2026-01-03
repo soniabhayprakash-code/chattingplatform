@@ -11,18 +11,23 @@ html,body{
     display: flex;
     align-items: center;
     justify-content: center;
-    position: fixed;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; 
 }
 #box{
     width: 100vw;       
-    height: 100vh;      
-    max-width: 500px;
-    box-shadow:none;
+    height: 100vh;  
+    height: 100dvh;    
+    max-width: 100%;   
+    margin: 0 auto;        
+    box-shadow: none;    
     background-color: white;
     overflow: hidden;
-    flex-direction: column;
     display: flex;
-    margin: 0 auto;
+    top: 0;
+    left: 0;
+    flex-direction: column;
     position: fixed;
 }
 #chat{
@@ -133,6 +138,7 @@ html,body{
     background-color:#474646;
 
 }
+
 
 
 
