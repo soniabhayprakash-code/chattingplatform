@@ -31,6 +31,7 @@ html,body{
     position: fixed;
 }
 #chat{
+    flex-shrink: 0;
     height: 10%;
     width: 100%;
     background-color: black;
@@ -138,6 +139,7 @@ html,body{
     background-color:#474646;
 
 }
+
 
 
 
