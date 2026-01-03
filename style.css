@@ -21,7 +21,8 @@ html,body{
     overflow: hidden;
     flex-direction: column;
     display: flex;
-    margin: 0 auto;    
+    margin: 0 auto;
+    position: fixed;
 }
 #chat{
     height: 10%;
@@ -35,6 +36,7 @@ html,body{
     align-items: center;
     justify-content: center;
     color: white;
+    position: fixed;
 }
 #chat-box {
     flex: 1; 
@@ -50,6 +52,7 @@ html,body{
     word-break: break-all;
     display: flex;
     flex-direction: column;
+    position: fixed;
 }
 #messages {
     list-style: none;
@@ -131,6 +134,7 @@ html,body{
     background-color:#474646;
 
 }
+
 
 
 
