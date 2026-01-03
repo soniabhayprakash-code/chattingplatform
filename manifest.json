@@ -4,8 +4,8 @@
   "description": "Real-time chatting platform",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#667eea",
-  "theme_color": "#667eea",
+  "background_color": "black",
+  "theme_color": "#black",
   "icons": [
     {
       "src": "icon-192.png",
@@ -20,3 +20,4 @@
   ]
 
 }
+
