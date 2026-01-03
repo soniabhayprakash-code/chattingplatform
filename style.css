@@ -94,6 +94,7 @@ html,body{
     align-items: center;
     justify-content: center;
     margin-top: 1px;
+    object-fit: cover;
 }
 .sent .delete-btn {
     position: absolute;
@@ -166,3 +167,4 @@ html,body{
 #sendBtn:hover {
     background-color: #474646;
 }
+
