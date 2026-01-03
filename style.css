@@ -58,6 +58,7 @@ html,body{
     word-break: break-all;
     display: flex;
     flex-direction: column;
+    -webkit-overflow-scrolling: touch;
 }
 #messages {
     list-style: none;
@@ -112,7 +113,7 @@ html,body{
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 5px;
+    padding: 4px;
 }
 #messageInput{
     flex: 1;
@@ -142,6 +143,7 @@ html,body{
     background-color:#474646;
 
 }
+
 
 
 
