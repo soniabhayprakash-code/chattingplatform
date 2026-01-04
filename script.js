@@ -1,3 +1,5 @@
+const chatBox = document.getElementById("chat-box");
+const typing = document.getElementById("typing");
 if ('virtualKeyboard' in navigator) {
     navigator.virtualKeyboard.overlaysContent = true;
     navigator.virtualKeyboard.addEventListener('geometrychange', () => {
@@ -64,6 +66,7 @@ input.addEventListener('focus', () => {
         chatBox.scrollTop = chatBox.scrollHeight;
     }, 400);
 });
+
 
 
 
