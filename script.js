@@ -56,6 +56,13 @@ input.addEventListener("keydown", (event) => {
         sendMessage();
     }
 });
+input.addEventListener('focus', () => {
+    setTimeout(() => {
+        document.getElementById('typing').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        chatBox.scrollTop = chatBox.scrollHeight;
+    }, 400);
+});
+
 
 
 
