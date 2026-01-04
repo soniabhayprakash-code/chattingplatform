@@ -1,9 +1,3 @@
-if ('virtualKeyboard' in navigator) {
-    navigator.virtualKeyboard.overlaysContent = true;
-    navigator.virtualKeyboard.addEventListener('geometrychange', () => {
-        chatBox.scrollTop = chatBox.scrollHeight;
-    });
-}
 const socket = io();
 
 const sendBtn = document.getElementById("sendBtn");
@@ -62,6 +56,7 @@ input.addEventListener('focus', () => {
         chatBox.scrollTop = chatBox.scrollHeight;
     }, 400);
 });
+
 
 
 
