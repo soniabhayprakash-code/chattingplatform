@@ -56,11 +56,8 @@ input.addEventListener("keydown", (event) => {
         sendMessage();
     }
 });
-input.addEventListener('focus', () => {
-    setTimeout(() => {
-        chatBox.scrollTop = chatBox.scrollHeight;
-    }, 400); 
-});
+
+
 
 
 
