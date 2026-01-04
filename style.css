@@ -130,6 +130,8 @@ html,body{
     z-index: 100;
     transition: transform 0.2s ease;
     position: fixed;
+    bottom: 0;
+    left: 0;
 }
 #messageInput{
     flex: 1;
@@ -158,4 +160,5 @@ html,body{
 #sendBtn:hover {
     background-color: #474646;
 }
+
 
