@@ -1,12 +1,12 @@
-if ('virtualKeyboard' in navigator) {
-    navigator.virtualKeyboard.overlaysContent = true;
-    navigator.virtualKeyboard.addEventListener('geometrychange', () => {
-        chatBox.scrollTop = chatBox.scrollHeight;
-    });
-}
 if ('typing' in navigator) {
     navigator.typing.overlaysContent = true;
     navigator.typing.addEventListener('geometrychange', () => {
+        chatBox.scrollTop = chatBox.scrollHeight;
+    });
+}
+if ('virtualKeyboard' in navigator) {
+    navigator.virtualKeyboard.overlaysContent = true;
+    navigator.virtualKeyboard.addEventListener('geometrychange', () => {
         chatBox.scrollTop = chatBox.scrollHeight;
     });
 }
@@ -68,6 +68,7 @@ input.addEventListener('focus', () => {
         chatBox.scrollTop = chatBox.scrollHeight;
     }, 400);
 });
+
 
 
 
