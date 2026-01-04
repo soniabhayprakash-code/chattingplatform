@@ -1,70 +1,144 @@
-if ('virtualKeyboard' in navigator) {
-    navigator.virtualKeyboard.overlaysContent = true;
-    navigator.virtualKeyboard.addEventListener('geometrychange', () => {
-        const keyboardHeight = event.target.boundingRect.height;
-        typing.style.bottom = keyboardHeight + "px";
-        chatBox.scrollTop = chatBox.scrollHeight;
-    });
-}
-const socket = io();
+document.addEventListener("DOMContentLoaded", () => {
 
-const sendBtn = document.getElementById("sendBtn");
-const input = document.getElementById("messageInput");
-const messagesList = document.getElementById("messages");
-const chatBox = document.getElementById("chat-box");
-const chatBox = document.getElementById("chat-box");
-const typing = document.getElementById("typing");
-function getTime() {
-    const now = new Date();
-    return now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-}
+    const socket = io();
 
-function addMessage(text, type) {
-    const li = document.createElement("li");
-    const messageBubble = document.createElement("div");
-    messageBubble.classList.add(type);
-    messageBubble.textContent = text;
+    const sendBtn = document.getElementById("sendBtn");
+    const input = document.getElementById("messageInput");
+    const messagesList = document.getElementById("messages");
+    const chatBox = document.getElementById("chat-box");
+    const typing = document.getElementById("typing");
 
-    const timestamp = document.createElement("span");
-    timestamp.classList.add("timestamp");
-    timestamp.textContent = getTime();
-    messageBubble.appendChild(timestamp);
+    if ('virtualKeyboard' in navigator) {
+        navigator.virtualKeyboard.overlaysContent = true;
 
-    li.appendChild(messageBubble);
-    messagesList.appendChild(li);
-
-    chatBox.scrollTop = chatBox.scrollHeight;
-}
-
-function sendMessage() {
-    const text = input.value.trim();
-    if (text === "") return;
-
-    addMessage(text, "sent");
-
-    socket.emit('chat message', text);
-
-    input.value = "";
-}
-
-socket.on('chat message', (text) => {
-    addMessage(text, "received");
-});
-
-sendBtn.addEventListener("click", sendMessage);
-
-input.addEventListener("keydown", (event) => {
-    if (event.key === "Enter" && !event.shiftKey) {
-        event.preventDefault();
-        sendMessage();
+        navigator.virtualKeyboard.addEventListener('geometrychange', (event) => {
+            const keyboardHeight = event.target.boundingRect.height;
+            typing.style.bottom = keyboardHeight + "px";
+            chatBox.scrollTop = chatBox.scrollHeight;
+        });
     }
-});
-input.addEventListener('focus', () => {
-    setTimeout(() => {
-        document.getElementById('typing').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+    function getTime() {
+        const now = new Date();
+        return now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    }
+
+    function addMessage(text, type) {
+        const li = document.createElement("li");
+        const messageBubble = document.createElement("div");
+
+        messageBubble.classList.add(type);
+        messageBubble.textContent = text;
+
+        const timestamp = document.createElement("span");
+        timestamp.classList.add("timestamp");
+        timestamp.textContent = getTime();
+
+        messageBubble.appendChild(timestamp);
+        li.appendChild(messageBubble);
+        messagesList.appendChild(li);
+
         chatBox.scrollTop = chatBox.scrollHeight;
-    }, 400);
+    }
+
+    function sendMessage() {
+        const text = input.value.trim();
+        if (text === "") return;
+
+        addMessage(text, "sent");
+        socket.emit('chat message', text);
+        input.value = "";
+    }
+
+    socket.on('chat message', (text) => {
+        addMessage(text, "received");
+    });
+
+    sendBtn.addEventListener("click", sendMessage);
+
+    input.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" && !event.shiftKey) {
+            event.preventDefault();
+            sendMessage();
+        }
+    });
+
+    input.addEventListener('focus', () => {
+        setTimeout(() => {
+            typing.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }, 400);
+    });
+
 });
+
+// if ('virtualKeyboard' in navigator) {
+//     navigator.virtualKeyboard.overlaysContent = true;
+//     navigator.virtualKeyboard.addEventListener('geometrychange', (event) => {
+//         const keyboardHeight = event.target.boundingRect.height;
+//         typing.style.bottom = keyboardHeight + "px";
+//         chatBox.scrollTop = chatBox.scrollHeight;
+//     });
+// }
+// const socket = io();
+
+// const sendBtn = document.getElementById("sendBtn");
+// const input = document.getElementById("messageInput");
+// const messagesList = document.getElementById("messages");
+// const chatBox = document.getElementById("chat-box");
+// const typing = document.getElementById("typing");
+// function getTime() {
+//     const now = new Date();
+//     return now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+// }
+
+// function addMessage(text, type) {
+//     const li = document.createElement("li");
+//     const messageBubble = document.createElement("div");
+//     messageBubble.classList.add(type);
+//     messageBubble.textContent = text;
+
+//     const timestamp = document.createElement("span");
+//     timestamp.classList.add("timestamp");
+//     timestamp.textContent = getTime();
+//     messageBubble.appendChild(timestamp);
+
+//     li.appendChild(messageBubble);
+//     messagesList.appendChild(li);
+
+//     chatBox.scrollTop = chatBox.scrollHeight;
+// }
+
+// function sendMessage() {
+//     const text = input.value.trim();
+//     if (text === "") return;
+
+//     addMessage(text, "sent");
+
+//     socket.emit('chat message', text);
+
+//     input.value = "";
+// }
+
+// socket.on('chat message', (text) => {
+//     addMessage(text, "received");
+// });
+
+// sendBtn.addEventListener("click", sendMessage);
+
+// input.addEventListener("keydown", (event) => {
+//     if (event.key === "Enter" && !event.shiftKey) {
+//         event.preventDefault();
+//         sendMessage();
+//     }
+// });
+// input.addEventListener('focus', () => {
+//     setTimeout(() => {
+//         document.getElementById('typing').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+//         chatBox.scrollTop = chatBox.scrollHeight;
+//     }, 400);
+// });
+
 
 
 
