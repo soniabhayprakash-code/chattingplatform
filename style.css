@@ -49,6 +49,7 @@ html,body{
     position: sticky;
     top:0;
     z-index: 10;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 #chat-box {
     flex: 1; 
@@ -151,6 +152,7 @@ html,body{
 #sendBtn:hover {
     background-color: #474646;
 }
+
 
 
 
