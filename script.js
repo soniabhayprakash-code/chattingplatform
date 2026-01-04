@@ -1,11 +1,3 @@
-const socket = io();
-
-const sendBtn = document.getElementById("sendBtn");
-const input = document.getElementById("messageInput");
-const messagesList = document.getElementById("messages");
-const chatBox = document.getElementById("chat-box");
-const chatBox = document.getElementById("chat-box");
-const typing = document.getElementById("typing");
 if ('virtualKeyboard' in navigator) {
     navigator.virtualKeyboard.overlaysContent = true;
     navigator.virtualKeyboard.addEventListener('geometrychange', () => {
@@ -14,6 +6,14 @@ if ('virtualKeyboard' in navigator) {
         chatBox.scrollTop = chatBox.scrollHeight;
     });
 }
+const socket = io();
+
+const sendBtn = document.getElementById("sendBtn");
+const input = document.getElementById("messageInput");
+const messagesList = document.getElementById("messages");
+const chatBox = document.getElementById("chat-box");
+const chatBox = document.getElementById("chat-box");
+const typing = document.getElementById("typing");
 function getTime() {
     const now = new Date();
     return now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
@@ -65,6 +65,7 @@ input.addEventListener('focus', () => {
         chatBox.scrollTop = chatBox.scrollHeight;
     }, 400);
 });
+
 
 
 
