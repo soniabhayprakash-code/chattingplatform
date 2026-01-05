@@ -17,7 +17,7 @@ io.on('connection', (socket) => {
         socket.broadcast.emit('chat message', msg); 
     });
     socket.on('disconnect', () => {
-        console.log('Connection is Gone');
+        console.log('Connection is Gone.');
     });
 });
 http.listen(3000, () => {
@@ -26,4 +26,5 @@ http.listen(3000, () => {
     console.log('Go to Browser: http://localhost:3000');
     console.log('=====================================');
 });
+
 
