@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    const socket = io();
+    const socket = io("https://chattingplatform.onrender.com", {
+    transports: ["websocket"]
+    });
 
     const sendBtn = document.getElementById("sendBtn");
     const input = document.getElementById("messageInput");
@@ -71,6 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 });
+
 
 
 
