@@ -3,7 +3,7 @@ const app = express();
 const http = require('http').createServer(app);
 const io = require('socket.io')(http, {
     cors: {
-        origin: "https://soniabhayprakash-code.github.io", 
+        origin: "https://soniabhayprakash-code.github.io/chattingplatform/", 
         methods: ["GET", "POST"]
     }
 });
@@ -26,5 +26,6 @@ http.listen(3000, () => {
     console.log('Go to Browser: http://localhost:3000');
     console.log('=====================================');
 });
+
 
 
