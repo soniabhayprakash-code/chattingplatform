@@ -1,7 +1,12 @@
 const express = require('express');
 const app = express();
 const http = require('http').createServer(app);
-const io = require('socket.io')(http);
+const io = require('socket.io')(http, {
+    cors: {
+        origin: "https://soniabhayprakash-code.github.io", 
+        methods: ["GET", "POST"]
+    }
+});
 app.use(express.static(__dirname));
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/index.html');
@@ -21,3 +26,4 @@ http.listen(3000, () => {
     console.log('Go to Browser: http://localhost:3000');
     console.log('=====================================');
 });
+
