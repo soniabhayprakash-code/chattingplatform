@@ -2,7 +2,8 @@
   "name": "The Chatting",
   "short_name": "The Chatting",
   "description": "Real-time chatting platform",
-  "start_url": "/",
+  "start_url": "/chattingplatform/",
+  "scope": "/chattingplatform/",
   "display": "standalone",
   "background_color": "#000000",
   "theme_color": "#000000",
@@ -20,6 +21,7 @@
   ]
 
 }
+
 
 
 
