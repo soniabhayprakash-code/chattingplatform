@@ -71,8 +71,16 @@ document.addEventListener("DOMContentLoaded", () => {
             chatBox.scrollTop = chatBox.scrollHeight;
         }, 400);
     });
-
+    if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+             navigator.serviceWorker.register("/chattingplatform/service-worker.js")
+             .then(() => console.log("Service Worker Registered"))
+             .catch(err => console.log("SW error", err));
+   });
+   }
+    
 });
+
 
 
 
