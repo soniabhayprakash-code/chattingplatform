@@ -60,10 +60,10 @@ html,body{
     flex: 1; 
     width: 100%;
     margin-top: 70px;   
-    height: calc(100vh - 70px - 70px);
     color: rgb(8, 8, 8);
     font-size: 20px;
     padding: 25px;
+    padding-bottom: 70px;
     overflow-y: auto;
     overflow-x: hidden; 
     word-wrap: break-word; 
@@ -76,6 +76,8 @@ html,body{
 #messages {
     list-style: none;
     width: 100%;
+    display: flex;
+    flex-direction: column;
 }
 .sent {
     align-self: flex-end;
@@ -160,7 +162,6 @@ html,body{
 #sendBtn:hover {
     background-color: #474646;
 }
-
 
 
 
