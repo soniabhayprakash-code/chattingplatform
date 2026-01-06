@@ -29,24 +29,29 @@ document.addEventListener("DOMContentLoaded", () => {
         const now = new Date();
         return now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
     }
-
     function addMessage(text, type) {
-        const li = document.createElement("li");
-        const messageBubble = document.createElement("div");
+            const li = document.createElement("li");
+            li.classList.add(type);
 
-        messageBubble.classList.add(type);
-        messageBubble.textContent = text;
+            const messageBubble = document.createElement("div");
+            messageBubble.className = "bubble";
 
-        const timestamp = document.createElement("span");
-        timestamp.classList.add("timestamp");
-        timestamp.textContent = getTime();
+            const msgText = document.createElement("span");
+            msgText.className = "msg-text";
+            msgText.textContent = text;
 
-        messageBubble.appendChild(timestamp);
-        li.appendChild(messageBubble);
-        messagesList.appendChild(li);
+            const timestamp = document.createElement("span");
+            timestamp.className = "timestamp";
+            timestamp.textContent = getTime();
 
-        scrollToBottom();
+            messageBubble.appendChild(msgText);
+            messageBubble.appendChild(timestamp);
+            li.appendChild(messageBubble);
+
+            messagesList.appendChild(li);
+            scrollToBottom();
     }
+
     function sendMessage() {
         const text = input.value.trim();
         if (text === "") return;
@@ -105,4 +110,3 @@ document.addEventListener("DOMContentLoaded", () => {
 
     
 });
-
