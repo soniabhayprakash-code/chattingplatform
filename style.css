@@ -80,45 +80,43 @@ html,body{
     display: flex;
     flex-direction: column;
 }
-.sent {
-    align-self: flex-end;
-    max-width: 100%;
+#messages li {
+    display: flex;
+    width: 100%;
+}
+#messages li.sent {
+    justify-content: flex-end;
+}
+#messages li.received {
+    justify-content: flex-start;
+}
+.bubble {
+    max-width: 75%;
+    padding: 8px 8px;
+    border-radius: 18px;
+    margin: 5px 0;
+    font-size: 18px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    display: inline-block;
+}
+li.sent .bubble {          
     background: black; 
     color: white;
-    padding: 8px 8px;
-    border-radius: 18px;
-    font-size: 18px;
     border-bottom-right-radius: 5px;
-    margin: 5px 0;
-    margin-left: 25%;
-    word-wrap: break-word;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.2);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    position: relative;
 }
-.received {
-    align-self: flex-start;
-    max-width: 75%;
+li.received .bubble {
     background: white;
     color: black;
-    padding: 8px 8px;
-    border-radius: 18px;
     border-bottom-left-radius: 5px;
-    margin: 5px 0;
-    word-wrap: break-word;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.2);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
 }
 .timestamp {
+    display: block;
     font-size: 11px;
     opacity: 0.7;
-    margin-top: 1px;
-    text-align:right; 
-    align-self: flex-end; 
+    margin-top: 4px;
+    text-align: right;
 }
 #typing{
     flex-shrink: 0;
@@ -175,5 +173,4 @@ html,body{
 #sendBtn:hover {
     background-color: #474646;
 }
-
 
