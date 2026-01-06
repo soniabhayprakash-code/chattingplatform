@@ -57,6 +57,8 @@ document.addEventListener("DOMContentLoaded", () => {
         addMessage(text, "sent");
         socket.emit('chat message', text);
         input.value = "";
+        input.style.height = "52px";
+        input.style.overflowY = "hidden";
     }
 
     socket.on('chat message', (text) => {
@@ -66,10 +68,11 @@ document.addEventListener("DOMContentLoaded", () => {
     sendBtn.addEventListener("click", sendMessage);
 
     input.addEventListener("keydown", (event) => {
-        if (event.key === "Enter" && !event.shiftKey) {
-            event.preventDefault();
-            sendMessage();
-        }
+    if (event.key === "Enter" && !event.shiftKey) {
+        event.preventDefault();
+        sendMessage();
+        input.style.height = "52px";
+    }
     });
 
     input.addEventListener('focus', () => {
@@ -78,6 +81,18 @@ document.addEventListener("DOMContentLoaded", () => {
             scrollToBottom();
         }, 400);
     });
+
+    input.addEventListener("input", () => {
+    input.style.height = "52px"; 
+
+    if (input.scrollHeight > 52) {
+        input.style.height = Math.min(input.scrollHeight, 120) + "px";
+        input.style.overflowY = "auto";
+    } else {
+        input.style.overflowY = "hidden";
+    }
+    });
+
     if ("serviceWorker" in navigator) {
         window.addEventListener("load", () => {
         navigator.serviceWorker.register("/chattingplatform/service-worker.js")
@@ -95,4 +110,3 @@ document.addEventListener("DOMContentLoaded", () => {
 
     
 });
-
