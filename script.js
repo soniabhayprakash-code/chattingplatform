@@ -13,10 +13,8 @@ document.addEventListener("DOMContentLoaded", () => {
     function scrollToBottom() {
     setTimeout(() => {
         chatBox.scrollTop = chatBox.scrollHeight;
-    }, 50);
-   }
-
-
+        }, 50);
+    }
     if ('virtualKeyboard' in navigator) {
         navigator.virtualKeyboard.overlaysContent = true;
 
@@ -49,7 +47,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         scrollToBottom();
     }
-
     function sendMessage() {
         const text = input.value.trim();
         if (text === "") return;
@@ -60,11 +57,9 @@ document.addEventListener("DOMContentLoaded", () => {
         input.style.height = "52px";
         input.style.overflowY = "hidden";
     }
-
     socket.on('chat message', (text) => {
         addMessage(text, "received");
     });
-
     sendBtn.addEventListener("click", sendMessage);
 
     input.addEventListener("keydown", (event) => {
@@ -110,3 +105,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
     
 });
+
