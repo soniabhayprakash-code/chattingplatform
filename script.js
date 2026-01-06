@@ -80,10 +80,19 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     if ("serviceWorker" in navigator) {
         window.addEventListener("load", () => {
-             navigator.serviceWorker.register("/chattingplatform/service-worker.js")
-             .then(() => console.log("Service Worker Registered"))
-             .catch(err => console.log("SW error", err));
-   });
-   }
+        navigator.serviceWorker.register("/chattingplatform/service-worker.js")
+        .then((registration) => {
+               console.log("Service Worker Registered");
+
+               registration.update();
+      })
+      .catch(err => console.log("SW error", err));
+     });
+     }
+     navigator.serviceWorker.getRegistrations().then(regs => {
+          console.log("SW registrations:", regs);
+     });
+
     
 });
+
