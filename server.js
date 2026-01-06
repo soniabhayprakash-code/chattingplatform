@@ -1,89 +1,31 @@
-document.addEventListener("DOMContentLoaded", () => {
-
-    const socket = io("https://chattingplatform.onrender.com", {
-    transports: ["websocket"]
-    });
-
-    const sendBtn = document.getElementById("sendBtn");
-    const input = document.getElementById("messageInput");
-    const messagesList = document.getElementById("messages");
-    const chatBox = document.getElementById("chat-box");
-    const typing = document.getElementById("typing");
-
-    function scrollToBottom() {
-    setTimeout(() => {
-        chatBox.scrollTop = chatBox.scrollHeight;
-    }, 50);
-   }
-
-
-    if ('virtualKeyboard' in navigator) {
-        navigator.virtualKeyboard.overlaysContent = true;
-
-        navigator.virtualKeyboard.addEventListener('geometrychange', (event) => {
-            const keyboardHeight = event.target.boundingRect.height;
-            typing.style.bottom = keyboardHeight + "px";
-            scrollToBottom();
-        });
+const express = require('express');
+const app = express();
+const http = require('http').createServer(app);
+const io = require('socket.io')(http, {
+    cors: {
+        origin: "*", 
+        methods: ["GET", "POST"]
     }
-
-    function getTime() {
-        const now = new Date();
-        return now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-    }
-
-    function addMessage(text, type) {
-        const li = document.createElement("li");
-        const messageBubble = document.createElement("div");
-
-        messageBubble.classList.add(type);
-        messageBubble.textContent = text;
-
-        const timestamp = document.createElement("span");
-        timestamp.classList.add("timestamp");
-        timestamp.textContent = getTime();
-
-        messageBubble.appendChild(timestamp);
-        li.appendChild(messageBubble);
-        messagesList.appendChild(li);
-
-        scrollToBottom();
-    }
-
-    function sendMessage() {
-        const text = input.value.trim();
-        if (text === "") return;
-
-        addMessage(text, "sent");
-        socket.emit('chat message', text);
-        input.value = "";
-    }
-
-    socket.on('chat message', (text) => {
-        addMessage(text, "received");
-    });
-
-    sendBtn.addEventListener("click", sendMessage);
-
-    input.addEventListener("keydown", (event) => {
-        if (event.key === "Enter" && !event.shiftKey) {
-            event.preventDefault();
-            sendMessage();
-        }
-    });
-
-    input.addEventListener('focus', () => {
-        setTimeout(() => {
-            typing.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-            scrollToBottom();
-        }, 400);
-    });
-    if ("serviceWorker" in navigator) {
-        window.addEventListener("load", () => {
-             navigator.serviceWorker.register("/chattingplatform/service-worker.js")
-             .then(() => console.log("Service Worker Registered"))
-             .catch(err => console.log("SW error", err));
-   });
-   }
-    
 });
+app.use(express.static(__dirname));
+app.get('/', (req, res) => {
+    res.sendFile(__dirname + '/index.html');
+});
+io.on('connection', (socket) => {
+    console.log('One User Connected.');
+    socket.on('chat message', (msg) => {
+        socket.broadcast.emit('chat message', msg); 
+    });
+    socket.on('disconnect', () => {
+        console.log('Connection is Gone.');
+    });
+});
+http.listen(3000, () => {
+    console.log('=====================================');
+    console.log('--Started--');
+    console.log('Go to Browser: http://localhost:3000');
+    console.log('=====================================');
+});
+
+
+
