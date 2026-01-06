@@ -62,7 +62,7 @@ html,body{
     color: rgb(8, 8, 8);
     font-size: 20px;
     padding: 25px;
-    padding-top: 70px;
+    padding-top: 80px;
     padding-bottom: 70px;
     overscroll-behavior: contain;
     overflow-y: auto;
@@ -89,7 +89,7 @@ html,body{
     border-radius: 18px;
     font-size: 18px;
     border-bottom-right-radius: 5px;
-    margin: 8px 0;
+    margin: 5px 0;
     margin-left: 25%;
     word-wrap: break-word;
     box-shadow: 0 1px 2px rgba(0,0,0,0.2);
@@ -106,7 +106,7 @@ html,body{
     padding: 8px 8px;
     border-radius: 18px;
     border-bottom-left-radius: 5px;
-    margin: 8px 0;
+    margin: 5px 0;
     word-wrap: break-word;
     box-shadow: 0 1px 2px rgba(0,0,0,0.2);
     display: flex;
@@ -163,6 +163,7 @@ html,body{
 #sendBtn:hover {
     background-color: #474646;
 }
+
 
 
 
