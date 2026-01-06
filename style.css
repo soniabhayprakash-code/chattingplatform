@@ -155,6 +155,10 @@ html,body{
     background-color: white;
     word-wrap: break-word;   
     white-space: pre-wrap;  
+    scrollbar-width: none;
+}
+#messageInput::-webkit-scrollbar {
+    display: none;               
 }
 #sendBtn{
     height:50px;
@@ -171,3 +175,4 @@ html,body{
 #sendBtn:hover {
     background-color: #474646;
 }
+
