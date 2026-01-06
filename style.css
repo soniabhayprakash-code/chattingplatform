@@ -63,6 +63,7 @@ html,body{
     color: rgb(8, 8, 8);
     font-size: 20px;
     padding: 25px;
+    padding-top: 70px;
     padding-bottom: 70px;
     overscroll-behavior: contain;
     overflow-y: auto;
@@ -163,6 +164,7 @@ html,body{
 #sendBtn:hover {
     background-color: #474646;
 }
+
 
 
 
