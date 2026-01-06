@@ -10,13 +10,20 @@ document.addEventListener("DOMContentLoaded", () => {
     const chatBox = document.getElementById("chat-box");
     const typing = document.getElementById("typing");
 
+    function scrollToBottom() {
+    setTimeout(() => {
+        chatBox.scrollTop = chatBox.scrollHeight;
+    }, 50);
+   }
+
+
     if ('virtualKeyboard' in navigator) {
         navigator.virtualKeyboard.overlaysContent = true;
 
         navigator.virtualKeyboard.addEventListener('geometrychange', (event) => {
             const keyboardHeight = event.target.boundingRect.height;
             typing.style.bottom = keyboardHeight + "px";
-            chatBox.scrollTop = chatBox.scrollHeight;
+            scrollToBottom();
         });
     }
 
@@ -40,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
         li.appendChild(messageBubble);
         messagesList.appendChild(li);
 
-        chatBox.scrollTop = chatBox.scrollHeight;
+        scrollToBottom();
     }
 
     function sendMessage() {
@@ -68,7 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
     input.addEventListener('focus', () => {
         setTimeout(() => {
             typing.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-            chatBox.scrollTop = chatBox.scrollHeight;
+            scrollToBottom();
         }, 400);
     });
     if ("serviceWorker" in navigator) {
@@ -80,26 +87,3 @@ document.addEventListener("DOMContentLoaded", () => {
    }
     
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
