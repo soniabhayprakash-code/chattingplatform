@@ -91,7 +91,7 @@ html,body{
     justify-content: flex-start;
 }
 .bubble {
-    max-width: 75%;
+    max-width: 80%;
     padding: 8px 8px;
     border-radius: 18px;
     margin: 5px 0;
@@ -173,4 +173,5 @@ li.received .bubble {
 #sendBtn:hover {
     background-color: #474646;
 }
+
 
