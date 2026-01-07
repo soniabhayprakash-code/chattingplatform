@@ -95,7 +95,7 @@ html,body{
     padding: 8px 8px;
     border-radius: 18px;
     margin: 5px 0;
-    font-size: 18px;
+    font-size: 13px;
     box-shadow: 0 1px 2px rgba(0,0,0,0.2);
     word-wrap: break-word;
     white-space: pre-wrap;
@@ -173,5 +173,6 @@ li.received .bubble {
 #sendBtn:hover {
     background-color: #474646;
 }
+
 
 
