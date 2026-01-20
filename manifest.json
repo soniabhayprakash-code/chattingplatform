@@ -1,6 +1,6 @@
 {
-  "name": "The Chatting",
-  "short_name": "The Chatting",
+  "name": "Parley",
+  "short_name": "Parley",
   "description": "Real-time chatting platform",
   "start_url": "/chattingplatform/",
   "scope": "/chattingplatform/",
@@ -21,6 +21,7 @@
   ]
 
 }
+
 
 
 
